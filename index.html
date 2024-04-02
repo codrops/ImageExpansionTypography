@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Expanding Image Animation within Typography | Codrops</title>
+    <meta name="description" content="An animation experiment where we expand an image within some typographic element on scroll." />
+    <meta name="keywords" content="image expansion, animation, gsap, typography" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+    <script>
+      document.documentElement.className = "js";
+    </script>
+    <script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
+  </head>
+  <body class="demo-1 loading">
+    <main>
+      <header class="frame">
+        <h1 class="frame__title">Expanding Image within <a href="https://tympanus.net/codrops/demos/?tag=typography">#Typography</a></h1>
+        <a class="frame__back" href="https://tympanus.net/codrops/?p=76821">Article</a>
+        <a class="frame__archive" href="https://tympanus.net/codrops/demos/">All demos</a>
+        <a class="frame__github" href="https://github/codrops/ImageExpansionTypography/">GitHub</a>
+      </header>
+      <div class="content content--left">
+        <h3 class="meta">Project 1</h3>
+        <h2 class="type" data-expand-1>
+          Gratitude is my<br />
+          new response<br />
+          to
+          <span class="type__expand type__expand--inline type__expand--reveal">
+            <span class="type__expand-img">
+              <span class="type__expand-img-inner" style="background-image: url(img/1.jpg);"></span>
+            </span>
+            <span class="anim skewed">judgement.</span>
+          </span>
+        </h2>
+        <p class="block">
+          Behold the boundless dance of yin and yang, where all is flux and nothing holds its shape but for a fleeting breath. The mountain's might, though seeming steadfast, is but a moment's pause in the eternal march of grains of sand.
+          The river's course, ever winding, knows not the morrow, content in its ceaseless journey to the embrace of the vast and fathomless sea. Such is the path of Dao, where the seeker finds wisdom not in the clamor of certainty, but in
+          the quietude of uncertainty, where the heart's compass points not to destinations known, but to realms uncharted, guided by the starlight of inner truth.
+        </p>
+      </div>
+      <div class="content content--center">
+        <h3 class="meta">Project 2</h3>
+        <h2 class="type" data-expand-2>
+          Life's a wild journey;<br />
+          embrace the<br />
+          <span class="type__expand type__expand--reveal type__expand--center">
+            <span class="aright">detours </span>
+            <span class="type__expand-img">
+              <span class="type__expand-img-inner" style="background-image: url(img/2.jpg);"></span>
+            </span>
+            <span class="anim skewed">and dance</span>
+          </span>
+          <br />
+          under the stars.
+        </h2>
+        <p class="block">
+          In this dance, even the stars, those ancient sentinels of the night sky, are not stationary but in perpetual motion, tracing their arcs in the fabric of the cosmos. Each spark of light, a testament to the infinite cycle of birth
+          and rebirth, where endings are but the prelude to beginnings anew. And in the vast expanse of the universe, where galaxies spiral in a ballet of cosmic forces, we, too, are part of this magnificent flux, our lives intertwined with
+          the ebb and flow of energies beyond our comprehension.
+        </p>
+      </div>
+      <div class="content content--right">
+        <h3 class="meta">Project 3</h3>
+        <h2 class="type" data-expand-3>
+          Let the miles unfurl<br />
+          like stories each<br />
+          <span class="type__expand type__expand--full">
+            <span class="type__expand-img">
+              <span class="type__expand-img-inner" style="background-image: url(img/3.jpg);"></span>
+            </span>
+          </span>
+          one a breath in the<br />
+          saga of the soul.
+        </h2>
+        <p class="block">
+          As we delve deeper into the mysteries of the cosmos, we encounter the profound realization that the universe itself breathes in a rhythm of creation and dissolution, a cosmic dance that mirrors the cycles of life and death on our
+          own planet. Stars are born from the dust, shining fiercely against the dark, only to eventually fade or explode in a dazzling finale, their remnants seeding future stars, planets, and perhaps, life itself. This celestial cycle
+          reflects the very essence of the Dao, emphasizing the interconnectedness of all things, the perpetual motion and transformation that is the hallmark of existence.
+        </p>
+      </div>
+      <div class="content content--justify">
+        <h3 class="meta">Project 4</h3>
+        <h2 class="type" data-expand-4>
+          Soar above
+          <span class="type__expand type__expand--stack">
+            <span class="anim rotated">peaks</span>
+            <span class="type__expand-img type__expand-img--small">
+              <span class="type__expand-img-inner" style="background-image: url(img/4.jpg);"></span>
+            </span>
+          </span>
+          into
+          <span class="type__expand type__expand--stack">
+            <span class="anim rotated">clouds,</span>
+            <span class="type__expand-img type__expand-img--small">
+              <span class="type__expand-img-inner" style="background-image: url(img/5.jpg);"></span>
+            </span>
+          </span>
+          <br />
+          and the whispers of the wind<br />
+          like
+          <span class="type__expand type__expand--stack">
+            <span class="type__expand-img type__expand-img--small">
+              <span class="type__expand-img-inner" style="background-image: url(img/6.jpg);"></span>
+            </span>
+            <span class="anim rotated">echoes,</span>
+          </span>
+          in the wast sky.
+        </h2>
+        <p class="block aright">
+          In this grand scheme, our human concerns, our joys and sorrows, ambitions and fears, are but echoes of the universal patterns of change and continuity. The Dao teaches us to see beyond the illusion of permanence, to embrace change
+          as the only constant. It invites us to let go of our rigid expectations and to flow with the natural order of things, finding peace in the acceptance that we are part of something far greater, a narrative written not just across
+          the ages, but across the endless expanse of space and time.
+        </p>
+      </div>
+      <div class="content content--line">
+        <h3 class="meta">Project 5</h3>
+        <h2 class="type" data-expand-5>
+          Sail
+          <span class="type__expand type__expand--mini">
+            <span class="type__expand-img type__expand-img--tiny">
+              <span class="type__expand-img-inner" style="background-image: url(img/7.jpg);"></span>
+            </span>
+          </span>
+          across the cosmic
+          <span class="type__expand type__expand--mini">
+            <span class="type__expand-img type__expand-img--tiny">
+              <span class="type__expand-img-inner" style="background-image: url(img/8.jpg);"></span>
+            </span>
+          </span>
+          sea,<br />
+          where stars compose
+          <span class="type__expand type__expand--mini">
+            <span class="type__expand-img type__expand-img--tiny">
+              <span class="type__expand-img-inner" style="background-image: url(img/9.jpg);"></span>
+            </span>
+          </span>
+          the melody<br />
+          of the universe, weaving the
+          <span class="type__expand type__expand--mini">
+            <span class="type__expand-img type__expand-img--tiny">
+              <span class="type__expand-img-inner" style="background-image: url(img/10.jpg);"></span>
+            </span>
+          </span>
+          grand<br />
+          tapestry of existence into<br />
+          an endless dance.
+        </h2>
+        <p class="block aleft">
+          This perspective imbues our lives with a sense of wonder and humility, urging us to live with intention, to cherish each moment as a precious thread in the intricate weave of the universe. It challenges us to find balance within
+          ourselves and in our interactions with the world around us, to seek not dominion, but harmony, recognizing that in the grand cosmic dance, every step, every turn, contributes to the beauty of the whole.
+        </p>
+      </div>
+    </main>
+    <script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/Flip.min.js"></script>
+    <!-- Image preloader -->
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <!-- Remove the following two lines if you don't want smooth scrolling -->
+    <script src="js/lenis.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>

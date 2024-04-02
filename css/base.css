@@ -1,0 +1,403 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: "Coconat";
+  src: url("../fonts/Coconat-Regular.woff2") format("woff2");
+}
+
+:root {
+	font-size: 16px;
+	--color-text: #fff;
+	--color-bg: rgb(96 111 140);
+	--color-link: #fff;
+	--color-link-hover: #fff;
+	--page-padding: 1rem 2rem;
+}
+
+body {
+	margin: 0;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: "Onest",-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: url(../img/noise.png), radial-gradient(circle, rgb(153 141 160) 0%, rgb(99 115 145) 100%);
+	background-size: 150px, 100% 100vh;
+	background-attachment: fixed;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 1500;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: var(--color-link-hover);
+	outline: none;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+	/* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+	outline: none;
+	background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+	/* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+	background: transparent;
+}
+
+a:focus-visible {
+	/* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+	outline: 2px solid red;
+	background: transparent;
+}
+
+.unbutton {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+.unbutton:focus {
+	outline: none;
+}
+
+.frame {
+	opacity: 0.5;
+	padding: var(--page-padding);
+	text-transform: uppercase;
+	font-weight: 500;
+	position: relative;
+	display: grid;
+	z-index: 1000;
+	width: 100%;
+	margin-bottom: 7vh;
+	grid-row-gap: 1rem;
+	grid-column-gap: 2rem;
+	pointer-events: none;
+	justify-items: start;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: 'title' 'archive' 'back' 'github' 'sponsor';
+}
+
+.frame #cdawrap {
+  max-width: 300px;
+  align-self: start;
+  text-align: left;
+  justify-self: start;
+}
+
+.frame a {
+  pointer-events: auto;
+}
+
+.frame__title {
+  grid-area: title;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+.frame__back {
+  grid-area: back;
+  justify-self: start;
+}
+
+.frame__archive {
+  grid-area: archive;
+  justify-self: start;
+}
+
+.frame__github {
+  grid-area: github;
+}
+
+.content {
+	padding: var(--page-padding);
+	display: grid;
+	margin-bottom: 30vh;
+	gap: 2rem;
+	grid-template-columns: 100%;
+	grid-template-areas: 'meta' 'type' 'block';
+	grid-template-rows: auto 70vh auto;
+}
+
+.content:last-of-type {
+  padding-bottom: 50vh;
+}
+
+.meta {
+	grid-area: meta;
+	font-weight: inherit;
+	margin-bottom: 5vh;
+}
+
+.meta::before {
+	content: '\2014';
+	padding-right: 0.25rem;
+}
+
+.type {
+	grid-area: type;
+	font-family: "Coconat";
+	margin: 0;
+	font-size: clamp(2rem,4.75vw,5rem);
+	text-transform: none;
+	line-height: 1.1;
+	font-weight: normal;
+}
+
+.type__expand {
+	vertical-align: top;
+	display: inline-grid;
+	grid-template-columns: min-content;
+}
+
+.type__expand--center {
+	display: block;
+}
+
+.type__expand--full {
+	display: block;
+}
+
+.type__expand--mini {
+	vertical-align: middle;
+	padding: 0 0.125em;
+}
+
+.type__expand--stack {
+	vertical-align: bottom;
+	grid-template-columns: 100%;
+	justify-items: center;
+}
+
+.type__expand--stack:has(.type__expand-img:first-child) {
+	vertical-align: top;
+}
+
+.type--open .type__expand {
+	gap: 1.5rem;
+}
+
+.type--open .type__expand--stack {
+	gap: 0.5rem;
+	padding: 0 0 1rem 0;
+}
+
+.type--open .type__expand--stack:has(.type__expand-img:first-child) {
+	padding: 1rem 0 0 0;
+}
+
+.type__expand-img {
+	display: block;
+	position: relative;
+	aspect-ratio: 16/9;
+	width: 0%;
+	overflow: hidden;
+	border-radius: 4rem;
+}
+
+.type__expand-img-inner {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+
+.type__expand-img--center {
+	justify-self: center;
+	align-self: center;
+}
+
+.type__expand-img--small {
+	aspect-ratio: 1;
+}
+
+.type__expand-img--tiny {
+	aspect-ratio: 25/9;
+}
+
+.type__expand--reveal .type__expand-img-inner {
+	width: 100vw;
+	aspect-ratio: 16/9;
+}
+
+.type--open .type__expand-img {
+	width: 100%;
+}
+
+.type--open .type__expand-img--small {
+	width: 3.25em;
+}
+
+.type--open .type__expand-img--tiny {
+	width: 2em;
+}
+
+.anim {
+	display: inline-block;
+  white-space: nowrap;
+}
+
+.type--open .skewed {
+	transform: skewX(-20deg);
+}
+
+.type--open .rotated {
+	transform: skewX(-5deg) rotateZ(-10deg);
+}
+
+.block {
+	grid-area: block;
+	margin: 0 0 0 0;
+	max-width: 400px;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 53em) {
+	.frame {
+		grid-template-columns: auto auto auto auto 1fr;
+		grid-template-areas: 'title back archive github sponsor';
+		margin-bottom: 40vh;
+	}
+	.frame #cdawrap {
+	  text-align: right;
+	  justify-self: end;
+	}
+	.content--left {
+		grid-template-columns: 1fr 42%;
+		grid-template-rows: auto 19vw auto;
+		grid-template-areas: 'meta meta' 'type type' '... block';
+	}
+	.content--center {
+		text-align: center;
+		place-items: center;
+		grid-template-rows: auto 40vw auto;
+	}
+	.content--center .type {
+		align-self: start;
+	}
+	.content--right {
+		grid-column-gap: 10vw;
+		grid-template-columns: auto 45%;
+		grid-template-areas: 'block meta' 'block type';
+		grid-template-rows: auto 50vw;
+		text-align: right;
+		justify-content: end;
+	}
+	.content--right .block {
+		margin-top: 40vh;
+	}
+	.content--justify {
+		max-width: 1080px;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto 35vw auto;
+		grid-template-areas: 'meta meta' 'type type' '... block';
+	}
+	.content--line {
+		grid-template-rows: auto 30vw auto;
+	}
+	.type__expand--inline {
+		gap: 0.1em;
+		grid-template-columns: repeat(3,min-content);
+	}
+	.type__expand--reveal .type__expand-img-inner {
+		width: 33vw;
+	}
+	.type__expand--center {
+		display: inline-grid;
+		gap: 0.15em;
+		justify-content: center;
+		grid-template-columns: auto auto auto;
+	}
+	.type--open .type__expand--center {
+		grid-template-columns: 1fr auto 1fr;
+	}
+	.type__expand--full {
+	  width: 100%;
+		grid-template-columns: 100%;
+	}
+  .type__expand--full .type__expand-img {
+    margin-left: auto;
+  }
+  .aright {
+		text-align: right;
+	}
+}
